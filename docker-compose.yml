@@ -11,19 +11,19 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
-    wordpress:
-      image: wordpress:latest
-      depends_on:
-        - mysql
-      ports:
-        - 80:80
-      environment:
-        WORDPRESS_DB_HOST: mysql
-        WORDPRESS_DB_USER: user
-        WORDPRESS_DB_PASSWORD: password
-        WORDPRESS_DB_NAME: db_wp
-      volumes:
-        - wordpress_data:/var/www/html
+  wordpress:
+    image: wordpress:latest
+    depends_on:
+      - mysql
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: user
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: db_wp
+    volumes:
+      - wordpress_data:/var/www/html
   
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
